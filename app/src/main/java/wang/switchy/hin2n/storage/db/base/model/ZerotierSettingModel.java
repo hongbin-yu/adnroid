@@ -1,7 +1,9 @@
 package wang.switchy.hin2n.storage.db.base.model;
 
 import org.greenrobot.greendao.annotation.Entity;
+import org.greenrobot.greendao.annotation.Generated;
 import org.greenrobot.greendao.annotation.Id;
+import org.greenrobot.greendao.annotation.Keep;
 
 @Entity(
         nameInDb = "ZerotierSettingList"//表名
@@ -20,7 +22,7 @@ public class ZerotierSettingModel {
     private boolean isSelcected;
     private boolean isAuto;
     private boolean isWifi;
-
+    @Generated(hash = 159390240)
     public ZerotierSettingModel(Long id, String nwid, String ip, String name, String username, String password, String macaddress, String netmask, boolean isSelcected, boolean isAuto, boolean isWifi) {
         this.id = id;
         this.nwid = nwid;
@@ -102,6 +104,10 @@ public class ZerotierSettingModel {
         this.netmask = netmask;
     }
 
+    public boolean getIsSelcected() {
+        return this.isSelcected;
+    }
+
     public boolean isSelcected() {
         return isSelcected;
     }
@@ -110,11 +116,23 @@ public class ZerotierSettingModel {
         isSelcected = selcected;
     }
 
+    public void setIsSelcected(boolean selcected) {
+        isSelcected = selcected;
+    }
+
     public boolean isAuto() {
         return isAuto;
     }
 
+    public boolean getIsAuto() {
+        return this.isAuto;
+    }
+
     public void setAuto(boolean auto) {
+        isAuto = auto;
+    }
+
+    public void setIsAuto(boolean auto) {
         isAuto = auto;
     }
 
@@ -122,7 +140,16 @@ public class ZerotierSettingModel {
         return isWifi;
     }
 
+    public boolean getIsWifi() {
+        return this.isWifi;
+    }
+
     public void setWifi(boolean wifi) {
         isWifi = wifi;
     }
+
+    public void setIsWifi(boolean wifi) {
+        isWifi = wifi;
+    }
+
 }

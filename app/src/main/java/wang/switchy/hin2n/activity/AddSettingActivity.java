@@ -10,9 +10,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.zerotier.libzt.ZeroTier;
 import com.zerotier.libzt.ZeroTierEventListener;
+
+import java.math.BigInteger;
 
 import wang.switchy.hin2n.R;
 import wang.switchy.hin2n.storage.db.base.model.ZerotierSettingModel;
@@ -79,6 +82,18 @@ public class AddSettingActivity extends AppCompatActivity implements ZeroTierEve
 
     protected boolean fetch() {
         mDeviceID = findViewById(R.id.editText_device_id);
+        String nwid = mDeviceID.getText().toString();
+        try {
+            Long id = new BigInteger(nwid, 16).longValue();
+            ZeroTier.start(getApplicationContext().getFilesDir()+"/zerotier5",this,9995);
+            System.out.println("joining network +"+nwid+" ...");
+            Toast.makeText(this,"joining network "+nwid,Toast.LENGTH_LONG).show();
+
+            ZeroTier.join(id);
+        }catch (NumberFormatException e){
+            System.out.println("NumberFormatException error:"+e.getMessage());
+            Toast.makeText(this,"NumberFormatException error :"+e.getMessage(),Toast.LENGTH_LONG).show();
+        }
 
 
         return true;
@@ -100,65 +115,81 @@ public class AddSettingActivity extends AppCompatActivity implements ZeroTierEve
         if (eventCode == ZeroTier.EVENT_NODE_ONLINE) {
             // The core service is running properly and can join networks now
             System.out.println("EVENT_NODE_ONLINE: nodeId=" + Long.toHexString(id));
+            Toast.makeText(this,"EVENT_NODE_ONLINE: nodeId=" + Long.toHexString(id),Toast.LENGTH_LONG).show();
         }
         if (eventCode == ZeroTier.EVENT_NODE_OFFLINE) {
             // Network does not seem to be reachable by any available strategy
             System.out.println("EVENT_NODE_OFFLINE");
+            Toast.makeText(this,"EVENT_NODE_OFFLINE",Toast.LENGTH_LONG).show();
         }
         if (eventCode == ZeroTier.EVENT_NODE_DOWN) {
             // Called when the node is shutting down
             System.out.println("EVENT_NODE_DOWN");
+            Toast.makeText(this,"EVENT_NODE_DOWN",Toast.LENGTH_LONG).show();
         }
         if (eventCode == ZeroTier.EVENT_NODE_IDENTITY_COLLISION) {
             // Another node with this identity already exists
             System.out.println("EVENT_NODE_IDENTITY_COLLISION");
+            Toast.makeText(this,"EVENT_NODE_IDENTITY_COLLISION",Toast.LENGTH_LONG).show();
         }
         if (eventCode == ZeroTier.EVENT_NODE_UNRECOVERABLE_ERROR) {
             // Try again
             System.out.println("EVENT_NODE_UNRECOVERABLE_ERROR");
+            Toast.makeText(this,"EVENT_NODE_UNRECOVERABLE_ERROR",Toast.LENGTH_LONG).show();
         }
         if (eventCode == ZeroTier.EVENT_NODE_NORMAL_TERMINATION) {
             // Normal closure
             System.out.println("EVENT_NODE_NORMAL_TERMINATION");
+            Toast.makeText(this,"EVENT_NODE_NORMAL_TERMINATION",Toast.LENGTH_LONG).show();
         }
         if (eventCode == ZeroTier.EVENT_NETWORK_READY_IP4) {
             // We have at least one assigned address and we've received a network configuration
             System.out.println("ZTS_EVENT_NETWORK_READY_IP4: nwid=" + Long.toHexString(id));
+            Toast.makeText(this,"ZTS_EVENT_NETWORK_READY_IP4: nwid=" + Long.toHexString(id),Toast.LENGTH_LONG).show();
         }
         if (eventCode == ZeroTier.EVENT_NETWORK_READY_IP6) {
             // We have at least one assigned address and we've received a network configuration
             System.out.println("ZTS_EVENT_NETWORK_READY_IP6: nwid=" + Long.toHexString(id));
+            Toast.makeText(this,"ZTS_EVENT_NETWORK_READY_IP6: nwid=" + Long.toHexString(id),Toast.LENGTH_LONG).show();
 
         }
         if (eventCode == ZeroTier.EVENT_NETWORK_DOWN) {
             // Someone called leave(), we have no assigned addresses, or otherwise cannot use this interface
             System.out.println("EVENT_NETWORK_DOWN: nwid=" + Long.toHexString(id));
+            Toast.makeText(this,"EVENT_NETWORK_DOWN: nwid=" + Long.toHexString(id),Toast.LENGTH_LONG).show();
         }
         if (eventCode == ZeroTier.EVENT_NETWORK_REQUESTING_CONFIG) {
             // Waiting for network configuration
             System.out.println("EVENT_NETWORK_REQUESTING_CONFIG: nwid=" + Long.toHexString(id));
+            Toast.makeText(this,"EVENT_NETWORK_REQUESTING_CONFIG: nwid=" + Long.toHexString(id),Toast.LENGTH_LONG).show();
         }
         if (eventCode == ZeroTier.EVENT_NETWORK_OK) {
             // Config received and this node is authorized for this network
             System.out.println("EVENT_NETWORK_OK: nwid=" + Long.toHexString(id));
+            Toast.makeText(this,"EVENT_NETWORK_OK: nwid=" + Long.toHexString(id),Toast.LENGTH_LONG).show();
         }
         if (eventCode == ZeroTier.EVENT_NETWORK_ACCESS_DENIED) {
             // You are not authorized to join this network
             System.out.println("EVENT_NETWORK_ACCESS_DENIED: nwid=" + Long.toHexString(id));
+            Toast.makeText(this,"EVENT_NETWORK_ACCESS_DENIED: nwid=" + Long.toHexString(id),Toast.LENGTH_LONG).show();
         }
         if (eventCode == ZeroTier.EVENT_NETWORK_NOT_FOUND) {
             // The virtual network does not exist
             System.out.println("EVENT_NETWORK_NOT_FOUND: nwid=" + Long.toHexString(id));
+            Toast.makeText(this,"EVENT_NETWORK_NOT_FOUND: nwid=" + Long.toHexString(id),Toast.LENGTH_LONG).show();
         }
         if (eventCode == ZeroTier.EVENT_NETWORK_CLIENT_TOO_OLD) {
             // The core version is too old
             System.out.println("EVENT_NETWORK_CLIENT_TOO_OLD: nwid=" + Long.toHexString(id));
+            Toast.makeText(this,"EVENT_NETWORK_CLIENT_TOO_OLD: nwid=" + Long.toHexString(id),Toast.LENGTH_LONG).show();
         }
         if (eventCode == ZeroTier.EVENT_PEER_P2P) {
             System.out.println("EVENT_PEER_P2P: id=" + Long.toHexString(id));
+            Toast.makeText(this,"EVENT_PEER_P2P: id=" + Long.toHexString(id),Toast.LENGTH_LONG).show();
         }
         if (eventCode == ZeroTier.EVENT_PEER_RELAY) {
             System.out.println("EVENT_PEER_RELAY: id=" + Long.toHexString(id));
+            Toast.makeText(this,"EVENT_PEER_RELAY: id=" + Long.toHexString(id),Toast.LENGTH_LONG).show();
         }
 
     }

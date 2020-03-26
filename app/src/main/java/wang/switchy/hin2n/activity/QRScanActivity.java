@@ -83,7 +83,7 @@ public class QRScanActivity extends AddSettingActivity {
                     public void run() {
                         device_id = result.getText();
                         if(device_id.indexOf("token=") > 0) {
-                            startSendHttpRequestThread(getString(R.string.app_fetch_url)+device_id+"&download");
+                            //startSendHttpRequestThread(getString(R.string.app_fetch_url)+device_id+"&download");
                         }
                         Toast.makeText(QRScanActivity.this, result.getText(), Toast.LENGTH_LONG).show();
                     }
