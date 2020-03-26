@@ -76,6 +76,8 @@ public class AddSettingActivity extends AppCompatActivity implements ZeroTierEve
                 fetch();
             }
         });
+        System.out.println("Starting ZeroTier...");
+        ZeroTier.start(getApplicationContext().getFilesDir()+"/zerotier5",this,9995);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
@@ -85,7 +87,6 @@ public class AddSettingActivity extends AppCompatActivity implements ZeroTierEve
         String nwid = mDeviceID.getText().toString();
         try {
             Long id = new BigInteger(nwid, 16).longValue();
-            ZeroTier.start(getApplicationContext().getFilesDir()+"/zerotier5",this,9995);
             System.out.println("joining network +"+nwid+" ...");
             Toast.makeText(this,"joining network "+nwid,Toast.LENGTH_LONG).show();
 
