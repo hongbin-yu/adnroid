@@ -44,7 +44,9 @@ import java.util.Scanner;
 import cn.pedant.SweetAlert.SweetAlertDialog;
 import dajana.activity.DocumentActivity;
 import dajana.activity.ui.login.LoginActivity;
+import dajana.model.ZerotierStatus;
 import dajana.service.MyZeroTierEventListener;
+import dajana.service.ZerotierService;
 import wang.switchy.hin2n.Application;
 import wang.switchy.hin2n.R;
 import wang.switchy.hin2n.event.ConnectingEvent;
@@ -190,6 +192,7 @@ public class MainActivity extends BaseActivity  implements View.OnClickListener 
             @Override
             public void onClick(View view) {
                 SharedPreferences n2nSp = getSharedPreferences("Hin2n", MODE_PRIVATE);
+                SharedPreferences ztSp = getSharedPreferences("zerotier", MODE_PRIVATE);
                 if(n2nSp != null) {
                     String displayName = n2nSp.getString("displayName",null);
                     //if(displayName == null) {
@@ -201,6 +204,20 @@ public class MainActivity extends BaseActivity  implements View.OnClickListener 
                 if (mCurrentSettingName.getText().equals(getResources().getString(R.string.no_setting))) {
                     Toast.makeText(mContext, "no setting selected", Toast.LENGTH_SHORT).show();
                     return;
+                }
+                ZerotierStatus.RunningStatus ztstatus = ZerotierService.INSTANCE == null? ZerotierStatus.RunningStatus.OFFLINE : ZerotierService.INSTANCE.getmCurrentStatus();
+                if (ZerotierService.INSTANCE != null && ztstatus != ZerotierStatus.RunningStatus.OFFLINE && ztstatus != ZerotierStatus.RunningStatus.NODEDOWN) {
+                    ZerotierService.INSTANCE.stop();
+                    mCloud.setVisibility(View.GONE);
+                    mWeb.setVisibility(View.GONE);
+                    //mUpload.setVisibility(View.GONE);
+                } else {
+                    Intent vpnPrepareIntent = VpnService.prepare(MainActivity.this);
+                    if (vpnPrepareIntent != null) {
+                        startActivityForResult(vpnPrepareIntent, REQUECT_CODE_VPN);
+                    } else {
+                        onActivityResult(REQUECT_CODE_VPN, RESULT_OK, null);
+                    }
                 }
 
                 EdgeStatus.RunningStatus status = N2NService.INSTANCE == null ? EdgeStatus.RunningStatus.DISCONNECT : N2NService.INSTANCE.getCurrentStatus();

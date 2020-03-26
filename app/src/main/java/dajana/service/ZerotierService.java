@@ -17,9 +17,12 @@ import com.zerotier.libzt.ZeroTierSocketAddress;
 
 import org.greenrobot.eventbus.EventBus;
 
+import java.io.IOException;
+
 import dajana.model.ZerotierStatus;
 import wang.switchy.hin2n.R;
 import wang.switchy.hin2n.activity.MainActivity;
+import wang.switchy.hin2n.event.ErrorEvent;
 import wang.switchy.hin2n.event.StartEvent;
 import wang.switchy.hin2n.event.StopEvent;
 import wang.switchy.hin2n.event.SupernodeDisconnectEvent;
@@ -29,6 +32,7 @@ import static dajana.model.ZerotierStatus.RunningStatus.OFFLINE;
 import static dajana.model.ZerotierStatus.RunningStatus.ONLINE;
 import static dajana.model.ZerotierStatus.RunningStatus.NODEDOWN;
 import static dajana.model.ZerotierStatus.RunningStatus.ISREADY;
+import static wang.switchy.hin2n.model.EdgeStatus.RunningStatus.DISCONNECT;
 
 public class ZerotierService extends VpnService implements ZeroTierEventListener {
 
@@ -132,6 +136,23 @@ public class ZerotierService extends VpnService implements ZeroTierEventListener
         return super.onStartCommand(intent, flags, startId);
     }
 
+    public void stop() {
+        mLastStatus = mCurrentStatus = OFFLINE;
+        showOrRemoveNotification(CMD_REMOVE_NOTIFICATION);
+
+        try {
+            if (mParcelFileDescriptor != null) {
+                mParcelFileDescriptor.close();
+                mParcelFileDescriptor = null;
+            }
+        } catch (IOException e) {
+            EventBus.getDefault().post(new ErrorEvent());
+            return;
+        }
+
+        EventBus.getDefault().post(new StopEvent());
+    }
+
     public void reportEdgeStatus(ZerotierStatus status) {
         mLastStatus = mCurrentStatus;
         mCurrentStatus = status.runningStatus;
@@ -227,6 +248,10 @@ public class ZerotierService extends VpnService implements ZeroTierEventListener
             default:
                 break;
         }
+    }
+
+    public ZerotierStatus.RunningStatus getmCurrentStatus() {
+        return mCurrentStatus;
     }
 
 }

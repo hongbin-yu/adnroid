@@ -158,6 +158,7 @@ android {
             dimension "channel"
             manifestPlaceholders += [UMENG_CHANNEL_VALUE: "normal"]
         }
+
         github {
             dimension "channel"
             manifestPlaceholders += [UMENG_CHANNEL_VALUE: "github"]
@@ -174,6 +175,8 @@ android {
             dimension "channel"
             manifestPlaceholders += [UMENG_CHANNEL_VALUE: "anzhi"]
         }
+
+
         arm {
             dimension "arch"
             ndk {
@@ -189,6 +192,8 @@ android {
                 manifestPlaceholders += [ARCH: "x86"]
             }
         }
+
+
         allarch {
             dimension "arch"
             ndk {
