@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="colorSupernodeDisconnect">#FF0000</color>
+    <color name="white">#eeeeee</color>
+    <color name="c_white">#ffffff</color>
+    <color name="c_gray">#c7c7c7</color>
+    <color name="c_black">#000000</color>
+    <color name="c_eeeeee">#eeeeee</color>
+    <color name="colorPrimaryUpload">#008577</color>
+    <color name="colorPrimaryDarkUpload">#00574B</color>
+    <color name="colorAccentUpload">#D81B60</color>
+    <color name="grey_300">#242424</color>
+    <color name="red_400">#452525</color>
+    <color name="blue_400">#414B56</color>
+    <color name="purple_500">#351F0D</color>
+    <color name="transparent">#00FFFFFF</color>
+</resources>

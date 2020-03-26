@@ -1,0 +1,222 @@
+<resources>
+    <string name="app_name">Dajana</string>
+    <string name="app_url">http://dajana.net</string>
+    <string name="app_fetch_url">http://173.239.188.30/cloud/download.php?id=</string>
+
+    <string name="open">open</string>
+    <string name="close">close</string>
+    <string name="add">Add</string>
+    <string name="delete">Delete</string>
+    <string name="share">Share</string>
+    <string name="search">Search</string>
+    <string name="sync">Sync</string>
+    <string name="start_add">Add</string>
+    <string name="add_random">Add</string>
+    <string name="start_delete">Delete</string>
+    <string name="start_manage">Manage</string>
+    <string name="FILE_NOT_FOUND">FILE NOT FOUND</string>
+
+    <string name="facebook_app_id"></string>
+
+    <string name="you_cloud">You cloud</string>
+    <string name="you_web">You web</string>
+    <string name="no_setting">--choose setting--</string>
+    <string name="device_id">Device ID</string>
+    <string name="fetch">Fetch</string>
+    <string name="keywords">keywords</string>
+    <string name="title_add_setting">Add settings</string>
+    <string name="title_add_device">Add device</string>
+    <string name="title_scan_qcode">Scan QR code</string>
+    <string name="title_update_setting">Update settings</string>
+    <string name="title_setting_list">Settings list</string>
+
+    <string name="dialog_add_succeed">Add succeed!</string>
+    <string name="dialog_save_succeed">Save succeed!</string>
+    <string name="dialog_update_succeed">Update succeed!</string>
+    <string name="dialog_update_request">Update this setting, and reconnect to n2n network?</string>
+    <string name="dialog_yes">Yes</string>
+    <string name="dialog_no">No</string>
+    <string name="dialog_reconnect">Reconnect n2n network with new setting?</string>
+    <string name="dialog_delete">Are you sure to delete this setting?</string>
+
+    <string name="toast_connect_failed">Failed to connect to the N2N network</string>
+    <string name="toast_disconnect_and_retry">Disconnected with supernode and try to reconnect to N2N network later</string>
+
+    <string name="notify_disconnect">Disconnected with supernode</string>
+    <string name="notify_reconnected">Reconnect to supernode successfully</string>
+
+    <string name="notification_channel_id_default">default</string>
+    <string name="notification_channel_name_default">default</string>
+
+    <string-array name="vpn_session_name">
+        <item>n2n_v1</item>
+        <item>n2n_v2</item>
+        <item>n2n_v2s</item>
+    </string-array>
+
+    <string name="trace_level_error">ERROR</string>
+    <string name="trace_level_warn">WARNING</string>
+    <string name="trace_level_normal">NORMAL</string>
+    <string name="trace_level_info">INFO</string>
+    <string name="trace_level_debug">DEBUG</string>
+    <string name="title_activity_scan__qr_">Scan QR Activity</string>
+    <string name="title_activity_scan_qr">Scan QR Activity</string>
+    <string name="title_activity_add_devices">Add Device</string>
+    <string name="action_settings">Settings</string>
+    <string name="about">About</string>
+
+    <string name="bundle_not_found">Bundel not found</string>
+    <string name="something_went_wrong">Something went wrong!</string>
+    <string name="contacts">Contacts</string>
+    <string name="error_code">Http response error</string>
+    <string name="error_contenttype">content type error</string>
+    <string name="title_activity_upload_to_server">Upload To Server</string>
+    <string name="title_activity_upload_file_service">Upload File Service</string>
+    <string name="title_activity_add_setting">Add Setting Activity</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="title_activity_qrscan">QR Scan Activity</string>
+    <string name="title_edit_activity">Edit Activity</string>
+
+    <string name="Select_files_first">Select files first</string>
+    <string name="Select_files">Select files</string>
+    <string name="Result">Result</string>
+    <string name="Reset">Reset</string>
+    <string name="Upload">Upload</string>
+    <string name="Cancel">Cancel</string>
+    <string name="Error">Error</string>
+    <string name="Take_Photo">Take Photo</string>
+    <string name="Choose_from_Library">Choose from Library </string>
+    <string name="files_ready_to_upload">files ready to upload </string>
+    <string name="file_not_exists">files not exists </string>
+    <string name="Error_occurred">Error occurred</string>
+    <string name="Error_in_file_upload">Error in file upload </string>
+    <string name="Uploading_in_progress">Uploading in progress </string>
+    <string name="File_uploading_successful">File uploading successful </string>
+    <string name="All_done">All done </string>
+    <string name="File_uploading">File uploading </string>
+    <string name="Invalid_username">Invalid username</string>
+    <string name="File_Uploading_Service">File Uploading Service</string>
+    <string name="Auto_upload_Camera_folder">Auto upload new files Camera folder </string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="too_many_files_at_once">Too many files at once</string>
+    <string name="title_activity_cloud">Cloud Activity</string>
+    <string name="error_file_upload_not_support">Error file upload not support</string>
+    <string name="error_sending_file">Error sending file</string>
+    <string name="ok">OK</string>
+    <string name="title_activity_document">Document Activity</string>
+    <string name="could_not_get_path_to_file">could not get path to file</string>
+    <string name="title_activity_image_view">ImageViewActivity</string>
+
+    <string name="action_copy_link">Copy link</string>
+    <string name="action_download">Download</string>
+    <string name="action_image_saved">Image saved</string>
+    <string name="toast_link_copied">Link copied to clipboard</string>
+    <string name="toast_could_not_open_file">Could not open file</string>
+    <string name="no_permission_to_write_files">no permission to write files</string>
+    <string name="title_activity_edit_scrolling">EditScrollingActivity</string>
+    <string name="large_text">
+        "Material is the metaphor.\n\n"
+
+        "A material metaphor is the unifying theory of a rationalized space and a system of motion."
+        "The material is grounded in tactile reality, inspired by the study of paper and ink, yet "
+        "technologically advanced and open to imagination and magic.\n"
+        "Surfaces and edges of the material provide visual cues that are grounded in reality. The "
+        "use of familiar tactile attributes helps users quickly understand affordances. Yet the "
+        "flexibility of the material creates new affordances that supercede those in the physical "
+        "world, without breaking the rules of physics.\n"
+        "The fundamentals of light, surface, and movement are key to conveying how objects move, "
+        "interact, and exist in space and in relation to each other. Realistic lighting shows "
+        "seams, divides space, and indicates moving parts.\n\n"
+
+        "Bold, graphic, intentional.\n\n"
+
+        "The foundational elements of print based design typography, grids, space, scale, color, "
+        "and use of imagery guide visual treatments. These elements do far more than please the "
+        "eye. They create hierarchy, meaning, and focus. Deliberate color choices, edge to edge "
+        "imagery, large scale typography, and intentional white space create a bold and graphic "
+        "interface that immerse the user in the experience.\n"
+        "An emphasis on user actions makes core functionality immediately apparent and provides "
+        "waypoints for the user.\n\n"
+
+        "Motion provides meaning.\n\n"
+
+        "Motion respects and reinforces the user as the prime mover. Primary user actions are "
+        "inflection points that initiate motion, transforming the whole design.\n"
+        "All action takes place in a single environment. Objects are presented to the user without "
+        "breaking the continuity of experience even as they transform and reorganize.\n"
+        "Motion is meaningful and appropriate, serving to focus attention and maintain continuity. "
+        "Feedback is subtle yet clear. Transitions are efﬁcient yet coherent.\n\n"
+
+        "3D world.\n\n"
+
+        "The material environment is a 3D space, which means all objects have x, y, and z "
+        "dimensions. The z-axis is perpendicularly aligned to the plane of the display, with the "
+        "positive z-axis extending towards the viewer. Every sheet of material occupies a single "
+        "position along the z-axis and has a standard 1dp thickness.\n"
+        "On the web, the z-axis is used for layering and not for perspective. The 3D world is "
+        "emulated by manipulating the y-axis.\n\n"
+
+        "Light and shadow.\n\n"
+
+        "Within the material environment, virtual lights illuminate the scene. Key lights create "
+        "directional shadows, while ambient light creates soft shadows from all angles.\n"
+        "Shadows in the material environment are cast by these two light sources. In Android "
+        "development, shadows occur when light sources are blocked by sheets of material at "
+        "various positions along the z-axis. On the web, shadows are depicted by manipulating the "
+        "y-axis only. The following example shows the card with a height of 6dp.\n\n"
+
+        "Resting elevation.\n\n"
+
+        "All material objects, regardless of size, have a resting elevation, or default elevation "
+        "that does not change. If an object changes elevation, it should return to its resting "
+        "elevation as soon as possible.\n\n"
+
+        "Component elevations.\n\n"
+
+        "The resting elevation for a component type is consistent across apps (e.g., FAB elevation "
+        "does not vary from 6dp in one app to 16dp in another app).\n"
+        "Components may have different resting elevations across platforms, depending on the depth "
+        "of the environment (e.g., TV has a greater depth than mobile or desktop).\n\n"
+
+        "Responsive elevation and dynamic elevation offsets.\n\n"
+
+        "Some component types have responsive elevation, meaning they change elevation in response "
+        "to user input (e.g., normal, focused, and pressed) or system events. These elevation "
+        "changes are consistently implemented using dynamic elevation offsets.\n"
+        "Dynamic elevation offsets are the goal elevation that a component moves towards, relative "
+        "to the component’s resting state. They ensure that elevation changes are consistent "
+        "across actions and component types. For example, all components that lift on press have "
+        "the same elevation change relative to their resting elevation.\n"
+        "Once the input event is completed or cancelled, the component will return to its resting "
+        "elevation.\n\n"
+
+        "Avoiding elevation interference.\n\n"
+
+        "Components with responsive elevations may encounter other components as they move between "
+        "their resting elevations and dynamic elevation offsets. Because material cannot pass "
+        "through other material, components avoid interfering with one another any number of ways, "
+        "whether on a per component basis or using the entire app layout.\n"
+        "On a component level, components can move or be removed before they cause interference. "
+        "For example, a floating action button (FAB) can disappear or move off screen before a "
+        "user picks up a card, or it can move if a snackbar appears.\n"
+        "On the layout level, design your app layout to minimize opportunities for interference. "
+        "For example, position the FAB to one side of stream of a cards so the FAB won’t interfere "
+        "when a user tries to pick up one of cards.\n\n"
+    </string>
+    <string name="title_activity_file_edit">FileEditActivity</string>
+    <string name="is_required">is required</string>
+    <string name="tags">Tags</string>
+    <string name="title_activity_video">VideoActivity</string>
+    <string name="title_activity_login">Sign in</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+
+</resources>
