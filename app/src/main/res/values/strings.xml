@@ -22,7 +22,7 @@
     <string name="you_web">You web</string>
     <string name="no_setting">--choose setting--</string>
     <string name="device_id">Device ID</string>
-    <string name="fetch">Fetch</string>
+    <string name="fetch">Join</string>
     <string name="keywords">keywords</string>
     <string name="title_add_setting">Add settings</string>
     <string name="title_add_device">Add device</string>

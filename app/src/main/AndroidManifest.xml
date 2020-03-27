@@ -47,12 +47,12 @@
         <activity
             android:name="dajana.activity.ImageViewActivity"
             android:label="@string/title_activity_image_view"
-            android:screenOrientation="portrait"
+            android:screenOrientation="fullSensor"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="dajana.activity.DocumentActivity"
             android:label="@string/you_cloud"
-            android:screenOrientation="portrait"
+            android:screenOrientation="fullSensor"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activity.CloudActivity"
@@ -90,7 +90,7 @@
         </activity>
         <activity
             android:name=".activity.MainActivity"
-            android:screenOrientation="portrait">
+            android:screenOrientation="fullSensor">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -99,19 +99,21 @@
         </activity>
         <activity
             android:name=".activity.ListActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="fullSensor" />
         <activity
             android:name=".activity.SettingDetailsActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="fullSensor" />
         <activity
             android:name=".activity.SettingAddDeviceActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="fullSensor" />
         <activity
             android:name=".activity.WebViewActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="fullSensor" />
         <activity
             android:name="com.wave.fileuploadservice.MainActivity"
-            android:screenOrientation="portrait" />
+
+
+            android:screenOrientation="fullSensor" />
 
         <service
             android:name=".service.N2NService"

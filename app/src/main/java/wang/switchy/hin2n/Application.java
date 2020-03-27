@@ -47,6 +47,18 @@ public class Application extends MultiDexApplication {
      */
     private final Handler handler;
     static {
+//        System.loadLibrary("zt");
+//        System.loadLibrary("lwip");
+//        System.loadLibrary("lwip_pic");
+//        System.loadLibrary("miniupnpc");
+//        System.loadLibrary("miniupnpc_pic");
+//        System.loadLibrary("natpmp");
+//        System.loadLibrary("natpmp_pic");
+//        System.loadLibrary("zt_pic");
+//        System.loadLibrary("ztcore");
+//        System.loadLibrary("zto_pic");
+
+
 //        System.loadLibrary("slog");
 //        System.loadLibrary("uip");
 //        System.loadLibrary("n2n_v2s");

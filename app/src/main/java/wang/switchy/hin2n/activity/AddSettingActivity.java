@@ -14,10 +14,12 @@ import android.widget.Toast;
 
 import com.zerotier.libzt.ZeroTier;
 import com.zerotier.libzt.ZeroTierEventListener;
+import com.zerotier.libzt.ZeroTierPeerDetails;
 
 import java.math.BigInteger;
 
 import wang.switchy.hin2n.R;
+import wang.switchy.hin2n.event.MyZeroTierEventListener;
 import wang.switchy.hin2n.storage.db.base.model.ZerotierSettingModel;
 
 public class AddSettingActivity extends AppCompatActivity implements ZeroTierEventListener {
@@ -76,8 +78,10 @@ public class AddSettingActivity extends AppCompatActivity implements ZeroTierEve
                 fetch();
             }
         });
+        ZeroTierEventListener listener = new MyZeroTierEventListener();
+
         System.out.println("Starting ZeroTier...");
-        ZeroTier.start(getApplicationContext().getFilesDir()+"/zerotier5",this,9995);
+        ZeroTier.start(getApplicationContext().getFilesDir()+"/zerotier5",listener,9995);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
@@ -85,12 +89,20 @@ public class AddSettingActivity extends AppCompatActivity implements ZeroTierEve
     protected boolean fetch() {
         mDeviceID = findViewById(R.id.editText_device_id);
         String nwid = mDeviceID.getText().toString();
+        if(nwid.length() != 16) {
+            //ZeroTierPeerDetails zetierPeerDeatil = new ZeroTierPeerDetails();
+            //ZeroTier.get_peer(ZeroTier.get_node_id(),zetierPeerDeatil);
+            Toast.makeText(this,"NWID error",Toast.LENGTH_LONG).show();
+            return false;
+        }
         try {
             Long id = new BigInteger(nwid, 16).longValue();
             System.out.println("joining network +"+nwid+" ...");
             Toast.makeText(this,"joining network "+nwid,Toast.LENGTH_LONG).show();
 
             ZeroTier.join(id);
+
+
         }catch (NumberFormatException e){
             System.out.println("NumberFormatException error:"+e.getMessage());
             Toast.makeText(this,"NumberFormatException error :"+e.getMessage(),Toast.LENGTH_LONG).show();
